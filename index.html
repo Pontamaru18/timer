@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポモドーロタイマー</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="timer-container">
+            <div class="progress-ring">
+                <svg width="300" height="300">
+                    <circle class="progress-ring__circle" stroke="#4CAF50" stroke-width="8" fill="transparent" r="140" cx="150" cy="150"/>
+                </svg>
+                <div class="time-display">
+                    <span id="minutes">25</span>:<span id="seconds">00</span>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="startBtn" class="btn"><i class="fas fa-play"></i> 開始</button>
+                <button id="pauseBtn" class="btn" disabled><i class="fas fa-pause"></i> 一時停止</button>
+                <button id="resetBtn" class="btn"><i class="fas fa-redo"></i> リセット</button>
+            </div>
+            <div class="mode-selector">
+                <button class="mode-btn active" data-minutes="25">ポモドーロ (25分)</button>
+                <button class="mode-btn" data-minutes="5">休憩 (5分)</button>
+                <button class="mode-btn" data-minutes="15">ロングブレイク (15分)</button>
+            </div>
+        </div>
+        <div class="stats">
+            <div class="stat-box">
+                <h3>今日の達成</h3>
+                <div class="pomodoro-count">
+                    <span id="completedSessions">0</span> / 8
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+        <div class="achievements">
+            <h3>アチーブメント</h3>
+            <div class="achievement-list" id="achievementList">
+                <!-- アチーブメントが追加される場所 -->
+            </div>
+        </div>
+    </div>
+    <audio id="tickSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
+    <audio id="alarmSound" src="https://assets.mixkit.co/active_storage/sfx/2558/2558-preview.mp3" preload="auto"></audio>
+    <audio id="achievementSound" src="https://assets.mixkit.co/active_storage/sfx/2578/2578-preview.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
